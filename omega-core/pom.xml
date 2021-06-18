@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>omega-base</artifactId>
+        <groupId>com.omega</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../omega-base/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.omega.core</groupId>
+    <artifactId>omega-core</artifactId>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.omega.common</groupId>
+            <artifactId>omega-common</artifactId>
+            <version>${omega-version}</version>
+        </dependency>
+    </dependencies>
+
+</project>
