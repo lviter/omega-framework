@@ -1,6 +1,11 @@
 package com.omega.framework.common.pojo.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.omega.framework.common.exception.ServiceException;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -13,7 +18,12 @@ import java.io.Serializable;
  **/
 @Data
 @Accessors(chain = true)
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class OmegaRs<T> implements Serializable {
+
+    private static final long serialVersionUID = -6204542340640355634L;
 
     /**
      * 响应头信息
@@ -28,18 +38,38 @@ public class OmegaRs<T> implements Serializable {
     /**
      * 操作时间
      */
-//    @JsonProper
+    @JsonProperty("current_time")
     private Long currentTime;
-
-    public OmegaRs() {
-    }
 
     public OmegaRs(T data) {
         this.data = data;
     }
 
-    public static <T> OmegaRs<T> ok(T data) {
-//        return new OmegaRs(new OmegaRsHeader("0", "SUCCESS"), data, System.currentTimeMillis());
-        return (OmegaRs<T>) data;
+    public OmegaRs(OmegaRsHeader header, Long currentTime) {
+        this.header = header;
+        this.currentTime = currentTime;
     }
+
+    /**
+     * @param data
+     * @param <T>
+     * @return
+     */
+    public static <T> OmegaRs<T> ok(T data) {
+        return new OmegaRs<>(
+                new OmegaRsHeader(AbstractRs.Status.SUCCESS.getFlag(), AbstractRs.Status.SUCCESS.getMessage()), data, System.currentTimeMillis()
+        );
+    }
+
+    /**
+     * @param se
+     * @param <T>
+     * @return
+     */
+    public static <T> OmegaRs<T> fail(ServiceException se) {
+        return new OmegaRs<>(
+                new OmegaRsHeader(se.getCode(), se.getErrorMessage()), null, System.currentTimeMillis()
+        );
+    }
+
 }

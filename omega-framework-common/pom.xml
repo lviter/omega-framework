@@ -15,9 +15,15 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <omega.core.version>1.0.0-SNAPSHOT</omega.core.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.omega.framework</groupId>
+            <artifactId>omega-framework-core</artifactId>
+            <version>${omega.core.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -26,7 +32,10 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
