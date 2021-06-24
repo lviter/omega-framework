@@ -19,7 +19,6 @@
     <modules>
         <module>../omega-framework-common</module>
         <module>../omega-framework-core</module>
-        <module>../omega-framework-starter</module>
         <module>../omega-framework-web</module>
     </modules>
 
@@ -29,6 +28,10 @@
         <maven.compiler.target>8</maven.compiler.target>
         <lombok.version>1.18.8</lombok.version>
         <jackson.version>2.12.1</jackson.version>
+        <spring.plugin.core.version>2.0.0.RELEASE</spring.plugin.core.version>
+        <knife4j.version>3.0.2</knife4j.version>
+        <aspectj.version>1.9.4</aspectj.version>
+
     </properties>
 
     <dependencyManagement>
@@ -43,6 +46,27 @@
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
                 <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.plugin</groupId>
+                <artifactId>spring-plugin-core</artifactId>
+                <version>${spring.plugin.core.version}</version>
+            </dependency>
+            <!-- swagger升级版 -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-springdoc-ui</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

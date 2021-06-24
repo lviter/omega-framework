@@ -23,6 +23,8 @@ public enum ApiErrorCodeEnum implements BaseServiceException {
     SYS_NO_LOGIN("900100101", "没有登录", "没有登录"),
 
     SYS_NO_PERMISSION("900100102", "没有权限", "没有权限"),
+
+    SYS_PLACEHOLDER_TEST("900100103", "测试占位异常:%s", "测试占位异常"),
     ;
 
     private final String code;
@@ -31,12 +33,12 @@ public enum ApiErrorCodeEnum implements BaseServiceException {
 
     @Override
     public String getCode() {
-        return null;
+        return this.code;
     }
 
     @Override
     public String getMessage() {
-        return null;
+        return this.message;
     }
 
     public static ApiErrorCodeEnum getEnum(Integer code) {

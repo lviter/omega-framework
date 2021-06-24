@@ -25,8 +25,8 @@ public enum TokenExceptionEnum implements BaseServiceException {
     TOKEN_INVALID_LOGIN_USER_NULL("900100310", "Token无效", "Token无效(用户信息不存在，无法成功解析出可用的用户信息)"),
     ;
 
-    private String code;
-    private String message;
+    private final String code;
+    private final String message;
     private final String remark;
 
     @Override
