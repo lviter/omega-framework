@@ -21,14 +21,14 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class OmegaRs<T> implements Serializable {
+public class OmegaResult<T> implements Serializable {
 
     private static final long serialVersionUID = -6204542340640355634L;
 
     /**
      * 响应头信息
      */
-    private OmegaRsHeader header;
+    private OmegaResultHeader header;
 
     /**
      * 响应体
@@ -41,11 +41,11 @@ public class OmegaRs<T> implements Serializable {
     @JsonProperty("current_time")
     private Long currentTime;
 
-    public OmegaRs(T data) {
+    public OmegaResult(T data) {
         this.data = data;
     }
 
-    public OmegaRs(OmegaRsHeader header, Long currentTime) {
+    public OmegaResult(OmegaResultHeader header, Long currentTime) {
         this.header = header;
         this.currentTime = currentTime;
     }
@@ -55,9 +55,9 @@ public class OmegaRs<T> implements Serializable {
      * @param <T>
      * @return
      */
-    public static <T> OmegaRs<T> ok(T data) {
-        return new OmegaRs<>(
-                new OmegaRsHeader(AbstractRs.Status.SUCCESS.getFlag(), AbstractRs.Status.SUCCESS.getMessage()), data, System.currentTimeMillis()
+    public static <T> OmegaResult<T> ok(T data) {
+        return new OmegaResult<>(
+                new OmegaResultHeader(AbstractResult.Status.SUCCESS.getFlag(), AbstractResult.Status.SUCCESS.getMessage()), data, System.currentTimeMillis()
         );
     }
 
@@ -66,9 +66,9 @@ public class OmegaRs<T> implements Serializable {
      * @param <T>
      * @return
      */
-    public static <T> OmegaRs<T> fail(ServiceException se) {
-        return new OmegaRs<>(
-                new OmegaRsHeader(se.getCode(), se.getErrorMessage()), null, System.currentTimeMillis()
+    public static <T> OmegaResult<T> fail(ServiceException se) {
+        return new OmegaResult<>(
+                new OmegaResultHeader(se.getCode(), se.getErrorMessage()), null, System.currentTimeMillis()
         );
     }
 

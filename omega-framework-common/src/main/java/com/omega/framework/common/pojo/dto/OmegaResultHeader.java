@@ -17,14 +17,14 @@ import java.io.Serializable;
 @Accessors(chain = true)
 @NoArgsConstructor
 @ToString
-public class OmegaRsHeader implements Serializable {
+public class OmegaResultHeader implements Serializable {
 
     private static final long serialVersionUID = -6204542340640355634L;
 
-    private String code = AbstractRs.Status.SUCCESS.getFlag();
+    private String code;
     private String message;
 
-    public OmegaRsHeader(final String code, final String message) {
+    public OmegaResultHeader(final String code, final String message) {
         this.code = code;
         this.message = message;
     }

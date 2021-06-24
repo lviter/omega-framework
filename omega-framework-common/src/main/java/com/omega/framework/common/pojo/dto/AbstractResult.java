@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Data
 @Accessors(chain = true)
 @NoArgsConstructor
-public class AbstractRs implements Serializable {
+public class AbstractResult implements Serializable {
 
     private static final long serialVersionUID = -6204542340640355634L;
 
@@ -22,8 +22,8 @@ public class AbstractRs implements Serializable {
         SUCCESS("1", "SUCCESS"),
         FAILURE("0", "FAILURE");
 
-        private String flag;
-        private String message;
+        private final String flag;
+        private final String message;
     }
 
 }
