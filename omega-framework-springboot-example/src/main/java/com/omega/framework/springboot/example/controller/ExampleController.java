@@ -2,6 +2,7 @@ package com.omega.framework.springboot.example.controller;
 
 import com.omega.framework.common.exception.ServiceException;
 import com.omega.framework.common.pojo.dto.OmegaResult;
+import com.omega.framework.common.util.spring.SpringApplicationContextUtils;
 import com.omega.framework.web.enums.ApiErrorCodeEnum;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
