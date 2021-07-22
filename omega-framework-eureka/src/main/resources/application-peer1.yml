@@ -1,0 +1,16 @@
+eureka:
+  server:
+    enable-self-preservation: false
+  instance:
+    app-group-name: omega-framework
+    hostname: omega-eureka
+    status-page-url: http://${spring.cloud.client.ip-address}:${server.port}/swagger-ui.html
+    prefer-ip-address: true
+    instance-id: omega-eureka1
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://omega-eureka:22002/eureka/
+server:
+  port: 22001

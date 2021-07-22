@@ -1,0 +1,27 @@
+server:
+  port: 21001
+eureka:
+  server:
+    #服务端开启自我保护模式。无论什么情况，服务端都会保持一定数量的服务。避免client与server的网络问题，而出现大量的服务被清除
+    enable-self-preservation: true
+    #开启清除无效服务的定时任务，时间间隔。默认1分钟
+    eviction-interval-timer-in-ms: 60000
+    #过期数据，是否也提供给client
+    disable-delta: false
+    #eureka服务端是否记录client的身份header
+    log-identity-headers: true
+    #对于缓存的注册数据，多长时间过期
+    response-cache-auto-expiration-in-seconds: 180
+    #当时间戳不一致的时候，是否进行同步
+    sync-when-timestamp-differs: true
+    #多个服务中心相互同步信息线程的最大空闲时间
+    max-idle-thread-age-in-minutes-for-peer-replication: 15
+    #状态同步线程的最大空闲时间
+    max-idle-thread-in-minutes-age-for-status-replication: 15
+    #在服务节点启动时，eureka尝试获取注册信息的次数
+    registry-sync-retries: 5
+    #在服务节点启动时，eureka多次尝试获取注册信息的间隔时间
+    registry-sync-retry-wait-ms: 10000
+spring:
+  application:
+    name: omega-eureka
