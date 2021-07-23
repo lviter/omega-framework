@@ -3,3 +3,7 @@ server:
 spring:
   application:
     name: omega-gateway
+logging:
+  file: ${user.home}/data/logs/${spring.application.name}
+  level:
+    root: debug

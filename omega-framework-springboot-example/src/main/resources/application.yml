@@ -1,2 +1,9 @@
 server:
   port: 8081
+logging:
+  file: ${user.home}/data/logs/${spring.application.name}
+  level:
+    root: debug
+spring:
+  application:
+    name: omega-boot-example

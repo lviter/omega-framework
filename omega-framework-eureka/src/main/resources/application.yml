@@ -25,3 +25,7 @@ eureka:
 spring:
   application:
     name: omega-eureka
+logging:
+  file: ${user.home}/data/logs/${spring.application.name}
+  level:
+    root: debug
