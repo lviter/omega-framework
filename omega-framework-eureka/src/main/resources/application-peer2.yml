@@ -4,9 +4,9 @@ eureka:
   instance:
     app-group-name: omega-framework
     hostname: omega-eureka
-    status-page-url: http://${spring.cloud.client.ip-address}:${server.port}/swagger-ui.html
+    status-page-url: http://${spring.cloud.client.ip-address}:${server.port}/doc.html
     prefer-ip-address: true
-    instance-id: omega-eureka2
+    instance-id: omega-eureka2:${spring.cloud.client.ip-address}:${server.port}
   client:
     fetch-registry: true
     register-with-eureka: true
