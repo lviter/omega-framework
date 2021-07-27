@@ -1,0 +1,12 @@
+server:
+  port: 20002
+spring:
+  application:
+    name: omega-zipkin
+  zipkin:
+    base-url: http://localhost:20002
+    enabled: true
+logging:
+  file: ${user.home}/data/logs/${spring.application.name}
+  level:
+    root: debug

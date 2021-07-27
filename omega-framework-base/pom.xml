@@ -22,6 +22,7 @@
         <module>../omega-framework-web</module>
         <module>../omega-framework-gateway</module>
         <module>../omega-framework-eureka</module>
+        <module>../omega-framework-zipkin</module>
     </modules>
 
     <properties>
@@ -35,6 +36,7 @@
         <aspectj.version>1.9.4</aspectj.version>
         <eureka.version>2.1.5.RELEASE</eureka.version>
         <gateway.version>2.1.5.RELEASE</gateway.version>
+        <zipkin.version>2.1.5.RELEASE</zipkin.version>
     </properties>
 
     <dependencyManagement>
@@ -88,6 +90,23 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-gateway</artifactId>
                 <version>${gateway.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.zipkin.java/zipkin-server -->
+            <dependency>
+                <groupId>io.zipkin.java</groupId>
+                <artifactId>zipkin-server</artifactId>
+                <version>2.11.9</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.zipkin.java/zipkin-autoconfigure-ui -->
+            <dependency>
+                <groupId>io.zipkin.java</groupId>
+                <artifactId>zipkin-autoconfigure-ui</artifactId>
+                <version>2.11.9</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-zipkin</artifactId>
+                <version>${zipkin.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
