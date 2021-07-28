@@ -108,6 +108,11 @@
                 <artifactId>spring-cloud-starter-zipkin</artifactId>
                 <version>${zipkin.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+                <version>${zipkin.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <repositories>

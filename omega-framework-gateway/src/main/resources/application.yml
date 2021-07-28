@@ -3,6 +3,43 @@ server:
 spring:
   application:
     name: omega-gateway
+  zipkin:
+    enabled: true
+    base-url: http://localhost:20002/
+    locator:
+      discovery:
+        enabled: true
+  sleuth:
+    sampler:
+      probability: 1
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          # 开启小写验证，默认feign根据服务名查找都是用的全大写
+          lower-case-service-id: true
+      routes:
+        - id: admin-web
+          uri: http://127.0.0.1:8081/
+          predicates:
+            - Path=/boot-example/**
+          filters:
+            # 转发到具体项目去掉路由首单词，如 /admin-web/a 转发为 /a
+            - StripPrefix=1
+      globalcors:
+        # 全局允许跨域访问
+        cors-configurations:
+          '[/**]':
+            allow-credentials: true
+            allowed-origins: "*"
+            allowed-headers: "*"
+            allowed-methods:
+              - OPTIONS
+              - GET
+              - POST
+              - PUT
+              - DELETE
 logging:
   file: ${user.home}/data/logs/${spring.application.name}
   level:
