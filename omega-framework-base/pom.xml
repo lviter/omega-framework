@@ -37,6 +37,8 @@
         <eureka.version>2.1.5.RELEASE</eureka.version>
         <gateway.version>2.1.5.RELEASE</gateway.version>
         <zipkin.version>2.1.5.RELEASE</zipkin.version>
+        <mybatis.plus.version>3.4.1</mybatis.plus.version>
+        <mysql.version>8.0.21</mysql.version>
     </properties>
 
     <dependencyManagement>
@@ -112,6 +114,27 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-sleuth-zipkin</artifactId>
                 <version>${zipkin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <scope>runtime</scope>
+                <version>${mysql.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
