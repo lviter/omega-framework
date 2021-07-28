@@ -10,6 +10,12 @@ spring:
   zipkin:
     enabled: true
     base-url: http://localhost:20002/
+    locator:
+      discovery:
+        enabled: true
+  sleuth:
+    sampler:
+      probability: 1
 eureka:
   instance:
     prefer-ip-address: true

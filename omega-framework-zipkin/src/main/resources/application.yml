@@ -3,9 +3,11 @@ server:
 spring:
   application:
     name: omega-zipkin
-  zipkin:
-    base-url: http://localhost:20002
-    enabled: true
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
 logging:
   file: ${user.home}/data/logs/${spring.application.name}
   level:

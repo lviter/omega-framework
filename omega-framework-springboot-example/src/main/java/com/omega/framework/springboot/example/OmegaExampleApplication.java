@@ -2,6 +2,7 @@ package com.omega.framework.springboot.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
@@ -12,6 +13,8 @@ import org.springframework.context.annotation.ComponentScan;
  **/
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.omega.framework.**"})
+@EnableEurekaClient
+
 public class OmegaExampleApplication {
     public static void main(String[] args) {
         SpringApplication.run(OmegaExampleApplication.class, args);
