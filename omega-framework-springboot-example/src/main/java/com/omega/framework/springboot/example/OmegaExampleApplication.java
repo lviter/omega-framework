@@ -2,6 +2,7 @@ package com.omega.framework.springboot.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.ComponentScan;
 
@@ -11,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @Date 12:09 2021/6/24
  * @Desc: Warning!Warning!!Warning!!!
  **/
-@SpringBootApplication
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @ComponentScan(basePackages = {"com.omega.framework.**"})
 @EnableEurekaClient
 public class OmegaExampleApplication {

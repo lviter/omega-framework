@@ -7,19 +7,19 @@ logging:
 spring:
   application:
     name: omega-boot-example
-  zipkin:
-    enabled: true
-    base-url: http://localhost:20002/
-    locator:
-      discovery:
-        enabled: true
-  sleuth:
-    sampler:
-      probability: 1
+#  zipkin:
+#    enabled: true
+#    base-url: http://localhost:20002/
+#    locator:
+#      discovery:
+#        enabled: true
+#  sleuth:
+#    sampler:
+#      probability: 1
 eureka:
   instance:
     prefer-ip-address: true
     instance-id: omega-example:${spring.cloud.client.ip-address}:${server.port}
   client:
     service-url:
-      defaultZone: http://omega-eureka:22001/eureka/,http://omega-eureka:22002/eureka/
+      defaultZone: http://omega-eureka:21001/eureka/,http://omega-eureka:22002/eureka/

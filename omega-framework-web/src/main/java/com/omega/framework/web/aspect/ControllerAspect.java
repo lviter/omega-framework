@@ -48,6 +48,7 @@ public class ControllerAspect {
             log.info("请求地址 :{}", request.getRequestURL().toString());
             log.info("请求方式 :{} ", request.getMethod());
             log.info("IP :{} ", request.getRemoteAddr());
+            log.info("IP12 {}", request.getRemoteHost() + request.getRemotePort());
             log.info("匹配方法 :{} ", joinPoint.getSignature().getDeclaringTypeName().concat(joinPoint.getSignature().getName()));
             log.info("方法参数 :{} ", Arrays.toString(joinPoint.getArgs()));
         }
