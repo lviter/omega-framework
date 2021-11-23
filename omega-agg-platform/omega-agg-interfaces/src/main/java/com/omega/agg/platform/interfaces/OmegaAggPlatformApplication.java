@@ -1,4 +1,4 @@
-package com.omega.agg.platform;
+package com.omega.agg.platform.interfaces;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

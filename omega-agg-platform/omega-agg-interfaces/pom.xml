@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>omega-agg-contract</artifactId>
+    <artifactId>omega-agg-interfaces</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -49,5 +49,4 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
     </dependencies>
-
 </project>
