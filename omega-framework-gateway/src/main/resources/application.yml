@@ -27,6 +27,13 @@ spring:
           filters:
             # 转发到具体项目去掉路由首单词，如 /admin-web/a 转发为 /a
             - StripPrefix=1
+        - id: agg-platform
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/agg/**
+          filters:
+            # 转发到具体项目去掉路由首单词，如 /admin-web/a 转发为 /a
+            - StripPrefix=1
       globalcors:
         # 全局允许跨域访问
         cors-configurations:
@@ -40,6 +47,7 @@ spring:
               - POST
               - PUT
               - DELETE
+
 logging:
   file: ${user.home}/data/logs/${spring.application.name}
   level:

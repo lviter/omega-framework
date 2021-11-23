@@ -49,7 +49,8 @@ public class ExampleController {
         List<String> stringList = new ArrayList<>();
         CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
 //        copyOnWriteArrayList.add()
-        Map<String,String> map = new HashMap<>(15);
+        Map<String,String> map
+                = new HashMap<>(15);
         map.put("","");
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
         concurrentHashMap.put("","");

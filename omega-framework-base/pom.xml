@@ -23,6 +23,7 @@
         <module>../omega-framework-gateway</module>
         <module>../omega-framework-eureka</module>
         <module>../omega-framework-zipkin</module>
+        <module>../omega-agg-platform</module>
     </modules>
 
     <properties>
