@@ -7,6 +7,12 @@ logging:
 spring:
   application:
     name: omega-agg-platform
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 815711
+    url: jdbc:mysql://omega-eureka:3306/omega_web?serverTimezone=CTT&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+
 eureka:
   instance:
     prefer-ip-address: true
@@ -14,3 +20,5 @@ eureka:
   client:
     service-url:
       defaultZone: http://omega-eureka:22001/eureka/,http://omega-eureka:22002/eureka/
+
+

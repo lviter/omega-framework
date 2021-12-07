@@ -22,11 +22,7 @@
             <artifactId>omega-framework-common</artifactId>
             <version>${omega.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.omega.framework</groupId>
-            <artifactId>omega-framework-web</artifactId>
-            <version>${omega.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>com.omega.framework</groupId>
             <artifactId>omega-framework-core</artifactId>
@@ -48,5 +44,46 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.omega.framework</groupId>
+            <artifactId>omega-agg-application</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>mysql</groupId>-->
+<!--            <artifactId>mysql-connector-java</artifactId>-->
+<!--            <scope>runtime</scope>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.omega.agg.platform.interfaces.OmegaAggPlatformApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
