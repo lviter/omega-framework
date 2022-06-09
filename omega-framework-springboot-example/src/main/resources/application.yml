@@ -7,15 +7,20 @@ logging:
 spring:
   application:
     name: omega-boot-example
-#  zipkin:
-#    enabled: true
-#    base-url: http://localhost:20002/
-#    locator:
-#      discovery:
-#        enabled: true
-#  sleuth:
-#    sampler:
-#      probability: 1
+  #  zipkin:
+  #    enabled: true
+  #    base-url: http://localhost:20002/
+  #    locator:
+  #      discovery:
+  #        enabled: true
+  #  sleuth:
+  #    sampler:
+  #      probability: 1
+  datasource:
+    url: jdbc:mysql://localhost:3306/llh_test_db
+    username: root
+    password: 815711
+    driver-class-name: com.mysql.jdbc.Driver
 eureka:
   instance:
     prefer-ip-address: true
@@ -23,3 +28,4 @@ eureka:
   client:
     service-url:
       defaultZone: http://omega-eureka:22001/eureka/,http://omega-eureka:22002/eureka/
+

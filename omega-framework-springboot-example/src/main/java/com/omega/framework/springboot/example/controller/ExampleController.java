@@ -3,6 +3,7 @@ package com.omega.framework.springboot.example.controller;
 import com.omega.framework.common.exception.ServiceException;
 import com.omega.framework.common.pojo.dto.OmegaResult;
 import com.omega.framework.common.util.spring.SpringApplicationContextUtils;
+import com.omega.framework.springboot.example.service.SqlBaseService;
 import com.omega.framework.web.enums.ApiErrorCodeEnum;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -30,8 +31,13 @@ import java.util.concurrent.locks.StampedLock;
 @RequestMapping(value = "/v1/example/")
 public class ExampleController {
 
-    @Autowired
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
+    private final SqlBaseService sqlBaseService;
+
+    public ExampleController(RestTemplate restTemplate, SqlBaseService sqlBaseService) {
+        this.restTemplate = restTemplate;
+        this.sqlBaseService = sqlBaseService;
+    }
 
     @ApiImplicitParam(name = "word", value = "一个文本")
     @ApiOperation(value = "get获取一个字符", notes = "get请求", response = String.class, httpMethod = "GET")
@@ -49,20 +55,27 @@ public class ExampleController {
         List<String> stringList = new ArrayList<>();
         CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
 //        copyOnWriteArrayList.add()
-        Map<String,String> map
+        Map<String, String> map
                 = new HashMap<>(15);
-        map.put("","");
+        map.put("", "");
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
-        concurrentHashMap.put("","");
+        concurrentHashMap.put("", "");
         ConcurrentSkipListMap concurrentSkipListMap = new ConcurrentSkipListMap();
-        concurrentSkipListMap.put("","");
+        concurrentSkipListMap.put("", "");
         return OmegaResult.fail(new ServiceException(ApiErrorCodeEnum.SYS_PLACEHOLDER_TEST, "lvl"));
     }
+
     @ApiOperation(value = "调用一个接口", notes = "get请求", response = String.class, httpMethod = "GET")
     @GetMapping(value = "/invoke")
-    public OmegaResult<String> invokeApi(@RequestParam(value = "url")String url){
-        String res =restTemplate.getForObject(url,String.class);
+    public OmegaResult<String> invokeApi(@RequestParam(value = "url") String url) {
+        String res = restTemplate.getForObject(url, String.class);
         return OmegaResult.ok(res);
+    }
+
+    @ApiOperation(value = "测试数据库")
+    @GetMapping(value = "invokeTest")
+    public OmegaResult<Integer> invokeTest() {
+        return OmegaResult.ok(sqlBaseService.saveData());
     }
 
 }
